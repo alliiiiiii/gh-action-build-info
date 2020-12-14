@@ -1,0 +1,18 @@
+name: 'Build info artefact'
+description: 'This action creates a build artefact to a specified location containing useful information about the build.'
+inputs:
+  output-location:
+    description: 'Output location'
+    required: false
+    default: 'dist'
+  artefact-filename:
+    description: 'Artefact filename'
+    required: false
+    default: '_i'
+runs:
+  using: 'composite'
+  steps: 
+    - run: >
+        echo "{"commit": "$GITHUB_SHA"}" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+      shell: bash
+      
