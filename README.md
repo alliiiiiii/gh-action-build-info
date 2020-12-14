@@ -14,9 +14,7 @@ The filename for the artefact, defaults to `_i` which will end up being `dist/_i
 
 ## Outputs
 
-### `commit-difference-count`
-
-The number of commits between the base branch and the secondary branch.
+This action doesn't provide any GH Actions output, but adds a file to the build.
 
 ## Example usage
 
