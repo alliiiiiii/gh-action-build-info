@@ -12,6 +12,7 @@ inputs:
 runs:
   using: 'composite'
   steps: 
-    - run: echo "'{\"commit\": \"$GITHUB_SHA\"}'" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+    - run: >
+        echo "{"commit": "$GITHUB_SHA"}" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
       
