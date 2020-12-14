@@ -14,8 +14,10 @@ runs:
   steps:
     - run: mkdir ${{ inputs.output-location }}
       shell: bash
+    - run: export now=`date -R`
+      shell: bash
     - run: >
-        echo "{"commit": "$GITHUB_SHA"}" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+        echo '{"commit": "$GITHUB_SHA", "build_date": "$now"}' >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
     - run: cat ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
