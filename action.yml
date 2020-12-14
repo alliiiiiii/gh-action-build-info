@@ -11,8 +11,11 @@ inputs:
     default: '_i'
 runs:
   using: 'composite'
-  steps: 
-    - run: >
-        echo "{"commit": "$GITHUB_SHA"}" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+  steps:
+    - run: mkdir -p ${{ inputs.output-location }}
       shell: bash
-      
+    - run: >
+        printf '{"commit": "%s", "utc_build_date": "%s"}' $GITHUB_SHA "`date -R`" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+      shell: bash
+    - run: cat ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+      shell: bash

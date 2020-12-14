@@ -3,8 +3,8 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A test of this workflow
     steps:
     - uses: actions/checkout@v2
-    - id: foo
-      uses: ./.github/actions/hello-world-action
+    - id: test
+      uses: ./.github/actions/this-action
