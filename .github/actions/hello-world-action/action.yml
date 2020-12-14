@@ -17,7 +17,7 @@ runs:
     - run: export now=`date -R`
       shell: bash
     - run: >
-        printf '{"commit": "%s", "build_date": "%s"}' $GITHUB_SHA $now >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+        printf '{"commit": "%s", "build_date": "%s"}' $GITHUB_SHA `date -R` >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
     - run: cat ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
