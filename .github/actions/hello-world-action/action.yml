@@ -17,4 +17,5 @@ runs:
     - run: >
         echo "{"commit": "$GITHUB_SHA"}" >> ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
       shell: bash
-      
+    - run: cat ./${{ inputs.output-location }}/${{ inputs.artefact-filename }}.json
+      shell: bash
